@@ -21,13 +21,25 @@ app.use(cors());
 app.use(cookieParser());
 
 app.use(morgan("dev"));
-
+app.use(express.static("./public"));
+app.use("/css", express.static("public"));
+app.use("/img", express.static("public"));
+app.set("view engine", "ejs");
 app.get("/", (req, re) => {
   res.status(200).json({
     message: "success",
   });
 });
 
+app.get("/register", (req, res) => {
+  res.render("register.ejs");
+});
+app.get("/login", (req, res) => {
+  res.render("login.ejs");
+});
+app.get("/search", (req, res) => {
+  res.render("search.ejs");
+});
 //all routes
 app.use("/api/v1", router);
 

@@ -1,4 +1,4 @@
-// create doc
+// create
 
 export const create = async (model, data) => {
   try {
@@ -9,7 +9,7 @@ export const create = async (model, data) => {
   }
 };
 
-//find one doc
+//find
 
 export const findOne = async (model, data) => {
   try {
@@ -21,7 +21,7 @@ export const findOne = async (model, data) => {
   }
 };
 
-//Find all doc
+//Find all
 export const find = async (model, data) => {
   try {
     if (!data) {
