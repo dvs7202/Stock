@@ -7,7 +7,7 @@ export const registerUser = async (req, res, next) => {
   try {
     logger.info("inside User Controller Register user");
     const { name, email, password, confirmPassword, mobileNo } = req.body;
-
+    console.log(req.body);
     const data = {
       name,
       email,
@@ -16,21 +16,17 @@ export const registerUser = async (req, res, next) => {
       mobileNo,
     };
     const user = await create(User, data);
-
+    console.log(data);
     return user
-      ? res.status(201).json({
-          message: "registration success",
-          data: user,
-        })
+      ? res.redirect("/api/v1/login")
       : res.status(201).json({
           message: "registration failed",
-          data: user,
+          data: null,
         });
   } catch (err) {
     next(new Error(error));
   }
 };
-
 export const loginUser = async (req, res, next) => {
   try {
     logger.info("inside user controller login user");
@@ -59,9 +55,7 @@ export const loginUser = async (req, res, next) => {
 
     res.cookie("jwt", token);
 
-    return res.status(200).json({
-      message: "login success",
-    });
+    res.redirect("/api/v1/search");
   } catch (error) {
     next(new Error(error));
   }

@@ -7,7 +7,7 @@ import morgan from "morgan";
 import db from "./connections/dbConnection.js";
 import cookieParser from "cookie-parser";
 import config from "./config/config.js";
-import Stock from "./models/stockModel";
+
 import {
   mongoseErrors,
   productionErrors,
@@ -16,13 +16,14 @@ import {
 const app = express();
 
 app.use(json());
-app.use(urlencoded({ extended: true }));
+app.use(urlencoded({ extended: false }));
 app.use(cors());
 app.use(cookieParser());
 
 app.use(morgan("dev"));
 app.use(express.static("./public"));
 app.use("/css", express.static("public"));
+app.use("/js", express.static("/src/public"));
 app.use("/img", express.static("public"));
 app.set("view engine", "ejs");
 app.get("/", (req, re) => {
@@ -31,25 +32,8 @@ app.get("/", (req, re) => {
   });
 });
 
-app.get("/register", (req, res) => {
-  res.render("register.ejs");
-});
-app.get("/login", (req, res) => {
-  res.render("login.ejs");
-});
-app.get("/search", (req, res) => {
-  res.render("search.ejs");
-});
 //all routes
 app.use("/api/v1", router);
-
-app.get("/search/:key", async (req, res, next) => {
-  console.log(req.params.key);
-  let data = await Stock.find({
-    $or: [{ symbol: { $regex: req.params.key } }],
-  });
-  res.send(data);
-});
 
 //db connections
 db();

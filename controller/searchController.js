@@ -2,7 +2,7 @@ import Stock from "../models/stockModel";
 import Search from "../models/searchModel";
 import { find } from "../helpers/common";
 export const searchstock = async (req, res, next) => {
-  const searchedField = await req.query.symbol;
+  console.log(req.body);
 
   await Search.create({ search: searchedField, searchBy: req.user.id });
 

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,21 +11,21 @@
   <body>
     <div class="main">
       <h1>Sign Up</h1>
-      <form action="/register" method="POST">
+      <form action="/api/v1/user/register" method="POST">
         <input type="name" name="name" placeholder="My Name" />
-        <input
-          type="mobile_no"
-          name="mobile_no"
-          placeholder="Enter contact no"
-        />
+        <input type="mobileNo" name="mobileNo" placeholder="Enter contact no" />
         <input type="email" name="email" placeholder="Enter Email" />
         <input type="password" name="password" placeholder="* * * * * *" />
         <input
-          type="confirmpassword"
-          name="confirmpassword"
+          type="confirmPassword"
+          name="confirmPassword"
           placeholder="* * * * * *"
         />
         <button>Sign In</button>
+        <div></div>
+        <a href="./login" style="text-decoration: none; color: rgb(32, 9, 81)"
+          >I have alredy accoount</a
+        >
       </form>
     </div>
   </body>

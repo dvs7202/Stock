@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "7d64b9c6-329b-4dae-a31c-cb35a288b9df",
+		"name": "stock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register_user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"divyesh\",\r\n    \"email\":\"divyesh@gmail.com\",\r\n    \"mobileNo\":9684376688,\r\n    \"password\":\"Dvs@0807\",\r\n    \"confirmPassword\":\"Dvs@0807\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}:3000/api/v1/user/register",
+					"host": [
+						"{{URL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"divyesh56@gmail.com\",\r\n    \"password\":\"Dvs2@0807\",\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}:3000/api/v1/user/login",
+					"host": [
+						"{{URL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}:3000/api/v1/search/AAPL",
+					"host": [
+						"{{URL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"search",
+						"AAPL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "stock",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "My Search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}:3000/api/v1/search/mysearch/",
+					"host": [
+						"{{URL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"search",
+						"mysearch",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

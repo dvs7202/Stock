@@ -13,7 +13,6 @@ export const create = async (model, data) => {
 
 export const findOne = async (model, data) => {
   try {
-    data.isDeleted = false;
     const doc = await model.findOne(data);
     return doc ? doc : false;
   } catch (error) {

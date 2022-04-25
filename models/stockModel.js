@@ -1,19 +1,26 @@
 import mongoose from "mongoose";
-import validator from "validator";
-import bcrypt from "bcrypt";
 
-// Creating User schema
-const stockSchema = new mongoose.Schema({
-  symbol: String,
-  date: Date,
-  stockPrice: Number,
-  numberOfShares: Number,
-  marketCapitalization: Number,
-  minusCashAndCashEquivalents: Number,
-  addTotalDebt: Number,
-  enterpriseValue: Number,
-});
+// Creating stock schema
+const stockSchema = new mongoose.Schema(
+  {
+    stockName: {
+      type: String,
+      uppercase: true,
+      required: true,
+    },
+    data: [
+      {
+        x: String,
+        o: String,
+        h: String,
+        l: String,
+        c: String,
+      },
+    ],
+  },
+  { timestamps: true }
+);
 
-const Stock = mongoose.model("Stock", stockSchema);
+const Stocks = mongoose.model("Stocks", stockSchema);
 
-export default Stock;
+export default Stocks;
